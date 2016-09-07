@@ -1,0 +1,45 @@
+{
+  "name": "vue-typescript-component",
+  "version": "0.1.0",
+  "description": "Decorators to transform TypeScript classes to vue components",
+  "author": "Locoslab GmbH",
+  "homepage": "https://github.com/locoslab/vue-typescript-component",
+  "bugs": "https://github.com/locoslab/vue-typescript-component/issues",
+  "repository": "locoslab/vue-typescript-component",
+  "license": "MIT",
+  "main": "./lib/vue-typescript-component.js",
+  "typings": "./lib/vue-typescript-component.d.ts",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "vue",
+    "typescript",
+    "vueify"
+  ],
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint src/**/*.ts test/**/*.ts",
+    "dist": "tslint src/**/*.ts && jest && tsc -p tsconfig.json --outDir lib"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testRegex": "/test/.*\\.(ts|js)$"
+  },
+  "peerDependencies": {
+    "typescript": "^2.0.2",
+    "vue": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^0.9.30",
+    "jest": "^15.1.1",
+    "tslint": "^3.15.1",
+    "tslint-config-locoslab": "github:locoslab/tslint-config-locoslab",
+    "typescript": "^2.0.2",
+    "vue": "github:vuejs/vue#4061c42748bcf374d2ad54c0a5f46bf258db06da"
+  }
+}

@@ -1,0 +1,48 @@
+exports[`test creates the expected data 1`] = `
+Object {
+  "aNumber": 123,
+  "aString": "abc"
+}
+`;
+
+exports[`test creates the expected options 1`] = `
+Object {
+  "computed": Object {
+    "aComputedNumber": Object {
+      "get": [Function get],
+      "set": [Function set]
+    },
+    "aComputedNumberGetter": [Function get],
+    "aComputedString": Object {
+      "get": [Function get],
+      "set": [Function set]
+    },
+    "aComputedStringGetter": [Function get]
+  },
+  "created": [Function anonymous],
+  "data": [Function anonymous],
+  "methods": Object {
+    "aMethod": [Function anonymous],
+    "aStringWatch": [Function anonymous]
+  },
+  "props": Object {
+    "aNumberProp": Object {},
+    "aNumberPropWithValue": Object {
+      "default": 123,
+      "required": true,
+      "type": [Function Number]
+    },
+    "aStringProp": Object {},
+    "aStringPropWithValue": Object {
+      "default": "abc",
+      "required": true,
+      "type": [Function String]
+    }
+  },
+  "watch": Object {
+    "aString": Object {
+      "handler": [Function anonymous]
+    }
+  }
+}
+`;

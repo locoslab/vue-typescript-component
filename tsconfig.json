@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"experimentalDecorators": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"sourceMap": false,
+		"pretty": true,
+		"declaration": true
+	},
+	"include": [
+		"src/**/*.ts"
+	],
+	"atom": {
+		"rewriteTsconfig": false
+	},
+	"compileOnSave": false
+}
