@@ -20,7 +20,7 @@
   "scripts": {
     "test": "jest",
     "lint": "tslint src/**/*.ts test/**/*.ts",
-    "dist": "tslint src/**/*.ts && jest && tsc -p tsconfig.json --outDir lib"
+    "dist": "tslint src/**/*.ts && jest --coverage && tsc -p tsconfig.json --outDir lib"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",
@@ -32,7 +32,7 @@
   },
   "peerDependencies": {
     "typescript": "^2.0.2",
-    "vue": "^2.0.0-rc.4"
+    "vue": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@types/jest": "^0.9.30",
@@ -40,6 +40,6 @@
     "tslint": "^3.15.1",
     "tslint-config-locoslab": "github:locoslab/tslint-config-locoslab",
     "typescript": "^2.0.2",
-    "vue": "github:vuejs/vue#4061c42748bcf374d2ad54c0a5f46bf258db06da"
+    "vue": "^2.0.0-rc.5"
   }
 }

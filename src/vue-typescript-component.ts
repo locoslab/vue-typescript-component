@@ -1,4 +1,4 @@
-import * as Vue from 'vue/types/options'
+import Vue = require('vue')
 
 export class WatchOptions {
 	expression: string
@@ -20,12 +20,19 @@ function getOrCreateComponent(target: any): VueTypescriptComponentData {
 	return target.$$vueTypescriptComponentData
 }
 
+/** Use field as property
+ * If field is initialized, sets default value and type. Otherwise mark as required
+ */
 export function prop(options: Vue.PropOptions = {}) {
 	return function (target: any, member: string) {
 		getOrCreateComponent(target).props[member] = options
 	}
 }
 
+/** Use method(val, oldVal) to watch expression
+ * The method is still part of the `method` object and it is possible to use multiple @watch
+ * annotations to watch multiple expressions with one string
+ */
 export function watch(expression: string, options: Vue.WatchOptions = {}) {
 	return function (target: any, member: string) {
 		const wo = new WatchOptions()
@@ -47,6 +54,9 @@ export interface NoArgumentConstructable {
 const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
 		'attached', 'detached', 'beforeDestroy', 'destroyed']
 
+/** Create vueComponentOptions constructor property based on method/field annotations
+ *  if provided, use options as the base value (.data is always overriden)
+ */
 export function component(options: Vue.ComponentOptions = {}) {
 	return function (cls: NoArgumentConstructable) {
 		const d = <VueTypescriptComponentData>cls.prototype.$$vueTypescriptComponentData

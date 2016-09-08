@@ -9,8 +9,8 @@
 		"pretty": true,
 		"declaration": true
 	},
-	"include": [
-		"src/**/*.ts"
+	"files": [
+		"src/vue-typescript-component.ts"
 	],
 	"atom": {
 		"rewriteTsconfig": false

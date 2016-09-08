@@ -1,27 +1,33 @@
 # vue-typescript-component [![Build Status](https://travis-ci.org/locoslab/vue-typescript-component.svg?branch=master)](https://travis-ci.org/locoslab/vue-typescript-component)
-Use TypeScript 2.0 classes as vue 2.0 components primarily targeting a vueify setup.
+Use TypeScript 2.0 classes as Vue.js 2.0 components primarily targeting a vueify setup.
 
-Note: This projects targets TypeScript 2.0 and vue 2.0 that are currently still in development and is also work in progress. Please cf. [package.json](package.json) for the tested versions.
+Note: This projects targets TypeScript 2.0 and Vue.js 2.0 that are currently still in development and is also work in progress. It  uses the built-in type definitions provide by Vue.js starting from 2.0.0-rc.5. Please cf. [package.json](package.json) for the tested versions.
+
+For a complete example project using this, vueify, and supporting Hot Module Replacement, checkout <https://github.com/locoslab/vue-typescript-component-example>.
 
 ## Usage
-Install: `npm install --save-dev locoslab/vue-typescript-component`
+Install: `npm install --save-dev vue-typescript-component`
+
+Note: TypeScript and Vue.js must be installed as well.
 
 ### Example Component
 ```typescript
 import Vue = require('vue')
 import * as vts from 'vue-typescript-component'
+// see note about import *.vue files below
 import * as ChildComponent from './child.vue'
 
 @vts.component({components: {ChildComponent}})
-class Example extends Vue {
-	// this will be part of 'data'
+export default class Example extends Vue {
+	// this will be 'data'
 	aString = 'abc'
 	aNumber = 123
 
-	// props
+	// props with initializer -> sets default value and type
 	@vts.prop() aStringPropWithValue = 'abc'
 	@vts.prop() aNumberPropWithValue = 123
 
+	// props without initializer -> sets required=true
 	@vts.prop() aStringProp: string
 	@vts.prop() aNumberProp: number
 
@@ -36,9 +42,9 @@ class Example extends Vue {
 	get aComputedNumberGetter(): number { return this.aNumber }
 
 	// methods
-	aMethod() { return 'aMethod' }
+	aMethod() { /* ... */ }
 
-	// a lifecycle hook (identified by its name)
+	// a lifecycle hook (names: http://rc.vuejs.org/api/#Options-Lifecycle-Hooks)
 	created() { /* ... */ }
 
 	// watches
@@ -53,14 +59,24 @@ The class can then be used in a `*.vue` file:
 </template>
 
 <script>
-import Example from './example.ts'
-export default Example.vueComponentOptions
+module.exports = require('./example.ts').default.vueComponentOptions
 </script>
 ```
 
+While it would be possible to support inline TypeScript code in the `vue` file itself, we prefer separate files to make use of existing  IDE/editor and tooling support for TypeScript files.
+
+Note: to use `import` with `*.vue` files in TypeScript code, cf. <https://github.com/locoslab/vue-typescript-import-dts>
 
 ## Acknowledgements
 There are a few other implementations using similar concepts. While this project has been implemented from scratch, <https://github.com/itsFrank/vue-typescript> and <https://github.com/usystems/vuejs-typescript-component> have been helpful during development. If this project does not meet your needs, check out the others!
+
+Why this one:
+* Targets Vue.js 2.0.0rc5 and uses the included type definitions
+* Works great with vueify which brings Hot Module Replacement
+* Smart props:
+	- if the prop is initialized, the type and default value is set for the prop definition and `required=false`
+	- else the prop is marked as required
+	- these settings can be overridden by providing an explicit `PropsOptions` parameter to the decorator
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
