@@ -26,16 +26,18 @@ Object {
     "aStringWatch": [Function anonymous]
   },
   "props": Object {
-    "aNumberProp": Object {},
+    "aNumberProp": Object {
+      "required": true
+    },
     "aNumberPropWithValue": Object {
       "default": 123,
-      "required": true,
       "type": [Function Number]
     },
-    "aStringProp": Object {},
+    "aStringProp": Object {
+      "required": true
+    },
     "aStringPropWithValue": Object {
       "default": "abc",
-      "required": true,
       "type": [Function String]
     }
   },

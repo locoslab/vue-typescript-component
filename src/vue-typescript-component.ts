@@ -101,7 +101,7 @@ export function component(options: Vue.ComponentOptions = {}) {
 		}
 		// set props without default value to required
 		for (let n in props) {
-			if (props[n].required === undefined && props[n].default !== undefined) {
+			if (props[n].required === undefined && props[n].default === undefined) {
 				props[n].required = true
 			}
 		}
