@@ -1,0 +1,45 @@
+exports[`test creates the expected data 1`] = `
+Object {
+  "someArray": Array [
+    123,
+    "abc"
+  ],
+  "someFoo": Foo {
+    "someArray": Array [
+      123,
+      "abc"
+    ],
+    "someNumber": 123,
+    "someObject": Object {
+      "aArray": Array [
+        123,
+        "abc"
+      ],
+      "aNumber": 123,
+      "aString": "abc"
+    },
+    "someString": "abc"
+  },
+  "someNumber": 123,
+  "someObject": Object {
+    "aArray": Array [
+      123,
+      "abc"
+    ],
+    "aNumber": 123,
+    "aString": "abc"
+  },
+  "someString": "abc"
+}
+`;
+
+exports[`test creates the expected options 1`] = `
+Object {
+  "computed": Object {},
+  "data": [Function anonymous],
+  "methods": Object {},
+  "name": "JustData",
+  "props": Object {},
+  "watch": Object {}
+}
+`;

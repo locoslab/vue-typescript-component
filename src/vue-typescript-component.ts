@@ -54,8 +54,8 @@ export interface NoArgumentConstructable {
 const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
 		'attached', 'detached', 'beforeDestroy', 'destroyed']
 
-/** Create vueComponentOptions constructor property based on method/field annotations
- *  if provided, use options as the base value (.data is always overriden)
+/** Create property constructor.vueComponentOptions based on method/field annotations
+ *  If provided, use options as the base value (.data is always overriden)
  */
 export function component(options: Vue.ComponentOptions = {}) {
 	return function (cls: NoArgumentConstructable) {
@@ -63,6 +63,7 @@ export function component(options: Vue.ComponentOptions = {}) {
 				|| new VueTypescriptComponentData()
 		const obj = new cls()
 		cls.vueComponentOptions = options
+		options.name = options.name || (<any>cls).name
 		options.methods = options.methods || {}
 		options.props = options.props || {}
 		// to get rid of Index signature of object type implicitly has an 'any' type.
