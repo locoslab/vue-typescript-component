@@ -1,4 +1,4 @@
-# vue-typescript-component [![Build Status](https://travis-ci.org/locoslab/vue-typescript-component.svg?branch=master)](https://travis-ci.org/locoslab/vue-typescript-component)
+# vue-typescript-component [![Build Status](https://travis-ci.org/locoslab/vue-typescript-component.svg?branch=master)](https://travis-ci.org/locoslab/vue-typescript-component) [![npm version](https://badge.fury.io/js/vue-typescript-component.svg)](https://badge.fury.io/js/vue-typescript-component)
 Use TypeScript 2.0 classes as Vue.js 2.0 components primarily targeting a vueify setup.
 
 Note: This projects targets TypeScript 2.0 and Vue.js 2.0 that are currently still in development and is also work in progress. It  uses the built-in type definitions provide by Vue.js starting from 2.0.0-rc.5. Please cf. [package.json](package.json) for the tested versions.
