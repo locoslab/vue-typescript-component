@@ -9,15 +9,15 @@ exports[`test creates the expected options 1`] = `
 Object {
   "computed": Object {
     "aComputedNumber": Object {
-      "get": [Function get],
-      "set": [Function set]
+      "get": [Function anonymous],
+      "set": [Function anonymous]
     },
-    "aComputedNumberGetter": [Function get],
+    "aComputedNumberGetter": [Function anonymous],
     "aComputedString": Object {
-      "get": [Function get],
-      "set": [Function set]
+      "get": [Function anonymous],
+      "set": [Function anonymous]
     },
-    "aComputedStringGetter": [Function get]
+    "aComputedStringGetter": [Function anonymous]
   },
   "created": [Function anonymous],
   "data": [Function anonymous],
@@ -44,6 +44,166 @@ Object {
   },
   "watch": Object {
     "aString": Object {
+      "handler": [Function anonymous]
+    }
+  }
+}
+`;
+
+exports[`test creates the expected options no change 1`] = `
+Object {
+  "computed": Object {
+    "aComputedNumber": Object {
+      "get": [Function anonymous],
+      "set": [Function anonymous]
+    },
+    "aComputedNumberGetter": [Function anonymous],
+    "aComputedString": Object {
+      "get": [Function anonymous],
+      "set": [Function anonymous]
+    },
+    "aComputedStringGetter": [Function anonymous]
+  },
+  "created": [Function anonymous],
+  "data": [Function anonymous],
+  "methods": Object {
+    "aMethod": [Function anonymous],
+    "aStringWatch": [Function anonymous]
+  },
+  "name": "TestInheritanceNoChange",
+  "props": Object {
+    "aNumberProp": Object {
+      "required": true
+    },
+    "aNumberPropWithValue": Object {
+      "default": 123,
+      "type": [Function Number]
+    },
+    "aStringProp": Object {
+      "required": true
+    },
+    "aStringPropWithValue": Object {
+      "default": "abc",
+      "type": [Function String]
+    }
+  },
+  "watch": Object {
+    "aString": Object {
+      "handler": [Function anonymous]
+    }
+  }
+}
+`;
+
+
+exports[`test creates the expected options for inheritance 1`] = `
+Object {
+  "computed": Object {
+    "aComputedNumber": Object {
+      "get": [Function anonymous],
+      "set": [Function anonymous]
+    },
+    "aComputedNumberGetter": [Function anonymous],
+    "aComputedString": Object {
+      "get": [Function anonymous],
+      "set": [Function anonymous]
+    },
+    "aComputedStringGetter": [Function anonymous]
+  },
+  "created": [Function anonymous],
+  "data": [Function anonymous],
+  "methods": Object {
+    "aMethod": [Function anonymous],
+    "aStringWatch": [Function anonymous],
+    "someMorePropWatch": [Function anonymous]
+  },
+  "name": "TestInheritance",
+  "props": Object {
+    "aNumberProp": Object {
+      "required": true
+    },
+    "aNumberPropWithValue": Object {
+      "default": 123,
+      "type": [Function Number]
+    },
+    "aStringProp": Object {
+      "required": true
+    },
+    "aStringPropWithValue": Object {
+      "default": "abc",
+      "type": [Function String]
+    },
+    "someMoreProp": Object {
+      "default": "def",
+      "type": [Function String]
+    }
+  },
+  "watch": Object {
+    "aString": Object {
+      "handler": [Function anonymous]
+    },
+    "someMoreProp": Object {
+      "handler": [Function anonymous]
+    }
+  }
+}
+`;
+
+exports[`test creates the expected options for inheritanceLevel2 1`] = `
+Object {
+  "computed": Object {
+    "aComputedNumber": Object {
+      "get": [Function anonymous],
+      "set": [Function anonymous]
+    },
+    "aComputedNumberGetter": [Function anonymous],
+    "aComputedString": Object {
+      "get": [Function anonymous],
+      "set": [Function anonymous]
+    },
+    "aComputedStringGetter": [Function anonymous]
+  },
+  "created": [Function anonymous],
+  "data": [Function anonymous],
+  "methods": Object {
+    "aMethod": [Function anonymous],
+    "aStringWatch": [Function anonymous],
+    "evenMorePropWatch": [Function anonymous],
+    "someMorePropWatch": [Function anonymous]
+  },
+  "name": "TestInheritanceLevel2",
+  "props": Object {
+    "aNumberProp": Object {
+      "required": true
+    },
+    "aNumberPropWithValue": Object {
+      "default": 123,
+      "type": [Function Number]
+    },
+    "aStringProp": Object {
+      "required": true
+    },
+    "aStringPropWithValue": Object {
+      "default": "abc",
+      "type": [Function String]
+    },
+    "evenMoreProp": Object {
+      "default": "ghi",
+      "type": [Function String]
+    },
+    "someMoreProp": Object {
+      "default": "def",
+      "type": [Function String]
+    }
+  },
+  "watch": Object {
+    "aString": Object {
+      "handler": [Function anonymous]
+    },
+    "evenMoreProp": Object {
+      "handler": [Function anonymous]
+    },
+    "someMoreProp": Object {
       "handler": [Function anonymous]
     }
   }

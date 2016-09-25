@@ -34,8 +34,41 @@ class AllInOne extends Vue {
 	@vts.watch('aString') aStringWatch(val: string, oldVal: string) { /* do nothing */ }
 }
 
+@vts.component( )
+class TestInheritance  extends AllInOne {
+	@vts.prop() someMoreProp = 'def'
+
+	@vts.watch('someMoreProp') someMorePropWatch(val: string, oldVal: string) { /* do nothing */ }
+}
+
+@vts.component( )
+class TestInheritanceNoChange  extends AllInOne {
+
+}
+
+@vts.component( )
+class TestInheritanceLevel2  extends TestInheritance {
+	@vts.prop() evenMoreProp = 'ghi'
+
+	@vts.watch('evenMoreProp') evenMorePropWatch(val: string, oldVal: string) { /* do nothing */ }
+
+}
+
 it('creates the expected options', () => {
+	// console.log( (<any>AllInOne).vueComponentOptions)
 	(<any>expect((<any>AllInOne).vueComponentOptions)).toMatchSnapshot()
+})
+it('creates the expected options for inheritance', () => {
+	// console.log( (<any>TestInheritance).vueComponentOptions)
+	(<any>expect((<any>TestInheritance).vueComponentOptions)).toMatchSnapshot()
+})
+it('creates the expected options no change', () => {
+	// console.log( (<any>TestInheritance).vueComponentOptions)
+	(<any>expect((<any>TestInheritanceNoChange).vueComponentOptions)).toMatchSnapshot()
+})
+it('creates the expected options for inheritanceLevel2', () => {
+	// console.log( (<any>TestInheritanceLevel2).vueComponentOptions)
+	(<any>expect((<any>TestInheritanceLevel2).vueComponentOptions)).toMatchSnapshot()
 })
 it('creates the expected data', () => {
 	(<any>expect((<any>AllInOne).vueComponentOptions.data())).toMatchSnapshot()

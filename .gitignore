@@ -201,3 +201,5 @@ jspm_packages
 
 ### Git ###
 *.orig
+
+/debug/
