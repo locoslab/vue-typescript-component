@@ -8,12 +8,10 @@
 		"sourceMap": true,
 		"pretty": true,
 		"declaration": true,
-		"outDir": "debug"
+		"outDir": "lib"
 	},
 	"files": [
-		"src/vue-typescript-component.ts",
-		"test/all-in-one.spec.ts",
-		"test/some-data.spec.ts"
+		"src/vue-typescript-component.ts"
 	],
 	"atom": {
 		"rewriteTsconfig": false

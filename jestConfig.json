@@ -1,0 +1,8 @@
+ {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testRegex": "/test/.*\\.(ts|js)$"
+  }

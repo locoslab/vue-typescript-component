@@ -20,26 +20,25 @@
   "scripts": {
     "test": "jest",
     "lint": "tslint src/**/*.ts test/**/*.ts",
-    "dist": "tslint src/**/*.ts && jest --coverage && tsc -p tsconfig.json --outDir lib"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/preprocessor.js",
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "testRegex": "/test/.*\\.(ts|js)$"
+    "debug-build": "npm run clean && npm run copy && npm run rename && tsc -p tsconfig.json",
+    "clean": "del-cli debug/*",
+    "copy": "copyfiles ./test/__snapshots__/* debug",
+    "rename": "renamer --find ts --replace js debug/test/__snapshots__/**/*",
+    "dist": "npm run clean && tslint src/**/*.ts && jest --coverage --config jestConfig.json && tsc -p tsconfigDist.json --outDir lib"
   },
   "peerDependencies": {
     "typescript": "^2.0.2",
-    "vue": "^2.0.0-rc.5"
+    "vue": "^2.0.0-rc.7"
   },
   "devDependencies": {
     "@types/jest": "^0.9.30",
-    "jest": "^15.1.1",
+    "copyfiles": "^1.0.0",
+    "del-cli": "^0.2.0",
+    "jest-cli": "^15.1.1",
+    "renamer": "^0.5.7",
     "tslint": "^3.15.1",
     "tslint-config-locoslab": "github:locoslab/tslint-config-locoslab",
     "typescript": "^2.0.2",
-    "vue": "^2.0.0-rc.5"
+    "vue": "^2.0.0-rc.7"
   }
 }

@@ -1,3 +1,6 @@
 {
-	"extends": "tslint-config-locoslab"
+	"extends": "tslint-config-locoslab",
+	"rules" :{
+		"no-console": [true, "log", "error"]
+	}
 }
