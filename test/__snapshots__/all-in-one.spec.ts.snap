@@ -153,15 +153,15 @@ exports[`test creates the expected options for inheritanceLevel2 1`] = `
 Object {
   "computed": Object {
     "aComputedNumber": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedNumberGetter": [Function anonymous],
+    "aComputedNumberGetter": [Function get],
     "aComputedString": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedStringGetter": [Function anonymous]
+    "aComputedStringGetter": [Function get]
   },
   "created": [Function anonymous],
   "data": [Function anonymous],
