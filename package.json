@@ -28,7 +28,7 @@
   },
   "peerDependencies": {
     "typescript": "^2.0.2",
-    "vue": "^2.0.0-rc.6"
+    "vue": "^2.0.0-rc.7"
   },
   "devDependencies": {
     "@types/jest": "^0.9.30",
@@ -39,6 +39,6 @@
     "tslint": "^3.15.1",
     "tslint-config-locoslab": "github:locoslab/tslint-config-locoslab",
     "typescript": "^2.0.2",
-    "vue": "^2.0.0-rc.6"
+    "vue": "^2.0.0-rc.7"
   }
 }

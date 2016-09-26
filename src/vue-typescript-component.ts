@@ -2,7 +2,7 @@ import Vue = require('vue')
 
 export class WatchOptions {
 	expression: string
-	options: { handler: Vue.WatchHandler } & Vue.WatchOptions
+	options: { handler: Vue.WatchHandler<Vue> } & Vue.WatchOptions
 }
 
 export class VueTypescriptComponentData {
@@ -37,7 +37,7 @@ export function watch(expression: string, options: Vue.WatchOptions = {}) {
 	return function (target: any, member: string) {
 		const wo = new WatchOptions()
 		wo.expression = expression
-		wo.options = <{ handler: Vue.WatchHandler } & WatchOptions>options
+		wo.options = <{ handler: Vue.WatchHandler<Vue> } & WatchOptions>options
 		const watch = getOrCreateComponent(target).watch
 		if (!watch[member]) {
 			watch[member] = []
@@ -48,7 +48,7 @@ export function watch(expression: string, options: Vue.WatchOptions = {}) {
 
 export interface NoArgumentConstructable {
 	new (): any
-	vueComponentOptions?: Vue.ComponentOptions
+	vueComponentOptions?: Vue.ComponentOptions<Vue>
 }
 
 const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
@@ -57,7 +57,7 @@ const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
 /** Create property constructor.vueComponentOptions based on method/field annotations
  *  If provided, use options as the base value (.data is always overriden)
  */
-export function component(options: Vue.ComponentOptions = {}) {
+export function component(options: Vue.ComponentOptions<Vue> = {}) {
 	return function (cls: NoArgumentConstructable) {
 		const d = <VueTypescriptComponentData>cls.prototype.$$vueTypescriptComponentData
 			|| new VueTypescriptComponentData()
@@ -167,7 +167,7 @@ function findPropInSuper(superClass: any, propName: string): boolean {
 }
 
 // copy methods from super classes
-function copyMethodes(superClass: any, options: Vue.ComponentOptions) {
+function copyMethodes(superClass: any, options: Vue.ComponentOptions<Vue>) {
 	if (!(superClass === Vue.prototype)) {
 		let superSuper = Object.getPrototypeOf(superClass)
 		copyMethodes(superSuper, options)
@@ -190,7 +190,7 @@ function copyMethodes(superClass: any, options: Vue.ComponentOptions) {
 }
 
 // copy props from super classes
-function copyProps(superClass: any, options: Vue.ComponentOptions) {
+function copyProps(superClass: any, options: Vue.ComponentOptions<Vue>) {
 	if (!(superClass === Vue.prototype)) {
 		let superSuper = Object.getPrototypeOf(superClass)
 		copyProps(superSuper, options)
@@ -202,13 +202,13 @@ function copyProps(superClass: any, options: Vue.ComponentOptions) {
 	}
 }
 
-function copyWatches(superClass: any, options: Vue.ComponentOptions) {
+function copyWatches(superClass: any, options: Vue.ComponentOptions<Vue>) {
 	if (!(superClass === Vue.prototype)) {
 		let superSuper = Object.getPrototypeOf(superClass)
 		copyWatches(superSuper, options)
 		// let watch = <{ [key: string]: any }> options.watch
-		let superWatch = <{ [key: string]: ({ handler: Vue.WatchHandler; } & WatchOptions) |
-			Vue.WatchHandler; }>superClass.$$vueTypescriptComponentData.watch || {}
+		let superWatch = <{ [key: string]: ({ handler: Vue.WatchHandler<Vue>; } & WatchOptions) |
+			Vue.WatchHandler<Vue>; }>superClass.$$vueTypescriptComponentData.watch || {}
 		for (let n of Object.getOwnPropertyNames(superWatch)) {
 			let ws: WatchOptions = (<any>superWatch)[n][0]
 			options.watch![ws.expression] = ws.options
