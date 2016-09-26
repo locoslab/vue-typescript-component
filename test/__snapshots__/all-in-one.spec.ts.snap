@@ -9,15 +9,15 @@ exports[`test creates the expected options 1`] = `
 Object {
   "computed": Object {
     "aComputedNumber": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedNumberGetter": [Function anonymous],
+    "aComputedNumberGetter": [Function get],
     "aComputedString": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedStringGetter": [Function anonymous]
+    "aComputedStringGetter": [Function get]
   },
   "created": [Function anonymous],
   "data": [Function anonymous],
@@ -54,15 +54,15 @@ exports[`test creates the expected options no change 1`] = `
 Object {
   "computed": Object {
     "aComputedNumber": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedNumberGetter": [Function anonymous],
+    "aComputedNumberGetter": [Function get],
     "aComputedString": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedStringGetter": [Function anonymous]
+    "aComputedStringGetter": [Function get]
   },
   "created": [Function anonymous],
   "data": [Function anonymous],
@@ -100,15 +100,15 @@ exports[`test creates the expected options for inheritance 1`] = `
 Object {
   "computed": Object {
     "aComputedNumber": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedNumberGetter": [Function anonymous],
+    "aComputedNumberGetter": [Function get],
     "aComputedString": Object {
-      "get": [Function anonymous],
-      "set": [Function anonymous]
+      "get": [Function get],
+      "set": [Function set]
     },
-    "aComputedStringGetter": [Function anonymous]
+    "aComputedStringGetter": [Function get]
   },
   "created": [Function anonymous],
   "data": [Function anonymous],
