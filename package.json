@@ -20,10 +20,10 @@
   "scripts": {
     "test": "jest",
     "lint": "tslint src/**/*.ts test/**/*.ts",
-	"debug-build": "npm run clean && npm run copy && npm run rename && tsc -p tsconfig.json",
-	"clean": "del-cli debug/*",
-	"copy": "copyfiles ./test/__snapshots__/* debug",
-	"rename": "renamer --find ts --replace js debug/test/__snapshots__/**/*",
+    "debug-build": "npm run clean && npm run copy && npm run rename && tsc -p tsconfig.json",
+    "clean": "del-cli debug/*",
+    "copy": "copyfiles ./test/__snapshots__/* debug",
+    "rename": "renamer --find ts --replace js debug/test/__snapshots__/**/*",
     "dist": "npm run clean && tslint src/**/*.ts && jest --coverage --config jestConfig.json && tsc -p tsconfigDist.json --outDir lib"
   },
   "peerDependencies": {
@@ -32,7 +32,10 @@
   },
   "devDependencies": {
     "@types/jest": "^0.9.30",
-	"jest-cli": "^15.1.1",
+    "copyfiles": "^1.0.0",
+    "del-cli": "^0.2.0",
+    "jest-cli": "^15.1.1",
+    "renamer": "^0.5.7",
     "tslint": "^3.15.1",
     "tslint-config-locoslab": "github:locoslab/tslint-config-locoslab",
     "typescript": "^2.0.2",
