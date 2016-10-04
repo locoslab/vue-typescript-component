@@ -10,6 +10,21 @@ export class VueTypescriptComponentData {
 	watch: {[index: string]: Array<WatchOptions>} = {}
 }
 
+// implementation Object.assign (targets only the scope of this project)
+function objAssign<T, U, V>(target: T, source1: U, source2?: V): T & U & V {
+	if (source1) {
+		for (let n of Object.getOwnPropertyNames(source1)) {
+			Object.defineProperty(target, n, Object.getOwnPropertyDescriptor(source1, n))
+		}
+	}
+	if (source2) {
+		for (let n of Object.getOwnPropertyNames(source2)) {
+			Object.defineProperty(target, n, Object.getOwnPropertyDescriptor(source2, n))
+		}
+	}
+	return <T & U & V>target
+}
+
 function getOrCreateComponent(target: any): VueTypescriptComponentData {
 	if (typeof target !== 'object') {
 		throw 'VueTypescriptComponent decorator is only allowed for non-static members'
@@ -48,6 +63,7 @@ export function watch(expression: string, options: Vue.WatchOptions = {}) {
 
 export interface NoArgumentConstructable {
 	new (): any
+	name?: any
 	vueComponentOptions?: Vue.ComponentOptions
 }
 
@@ -59,17 +75,19 @@ const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
  */
 export function component(options: Vue.ComponentOptions = {}) {
 	return function (cls: NoArgumentConstructable) {
-		const d = <VueTypescriptComponentData>cls.prototype.$$vueTypescriptComponentData
-				|| new VueTypescriptComponentData()
+		const d = cls.prototype.hasOwnProperty('$$vueTypescriptComponentData')
+				? <VueTypescriptComponentData>cls.prototype.$$vueTypescriptComponentData
+				: new VueTypescriptComponentData()
+		const superOptions: Vue.ComponentOptions = <Vue.ComponentOptions>cls.vueComponentOptions || {}
 		const obj = new cls()
 		cls.vueComponentOptions = options
 		options.name = options.name || (<any>cls).name
-		options.methods = options.methods || {}
-		options.props = options.props || {}
+		options.methods = objAssign({}, superOptions.methods, options.methods)
+		options.computed = objAssign({}, superOptions.computed, options.computed)
+		options.watch = objAssign({}, superOptions.watch, options.watch)
+		options.props = objAssign({}, superOptions.props, options.props)
 		// to get rid of Index signature of object type implicitly has an 'any' type.
 		const props = <{ [key: string]: Vue.PropOptions }>options.props
-		options.computed = options.computed || {}
-		options.watch = options.watch || {}
 		options.data = function () {
 			const newData = new cls()
 			const r: any = {}
@@ -87,10 +105,14 @@ export function component(options: Vue.ComponentOptions = {}) {
 		// create data; add default values and types to props with initialisers
 		for (let n of Object.getOwnPropertyNames(obj)) {
 			if (props[n]) {
-				if (props[n].default !== undefined) {
-					throw 'Property "' + n + '" has initialiser and PropOptions.default (use either or)'
+				if (props[n].default === undefined) {
+					if (typeof obj[n] === 'object') {
+						props[n].default = function () { return new cls()[n] }
+					} else {
+						props[n].default = obj[n]
+					}
 				}
-				if (typeof obj[n] === 'object' ) {
+				if (typeof obj[n] === 'object') {
 					props[n].default = function () { return new cls()[n] }
 				} else {
 					props[n].default = obj[n]
@@ -125,11 +147,11 @@ export function component(options: Vue.ComponentOptions = {}) {
 		// watch
 		for (let n of Object.getOwnPropertyNames(d.watch)) {
 			if (!options.methods![n]) {
-				throw '@watch must decorate a method: ' + n
+				throw '@watch must decorate a method: ' + cls.name + '.' + n
 			}
 			for (let o of d.watch[n]) {
-				if (options.watch![o.expression]) {
-					throw 'duplicate watch expression: ' + o.expression
+				if (options.watch![o.expression] && superOptions.watch![o.expression] !== options.watch![o.expression]) {
+					throw 'duplicate watch expression: ' + cls.name + '.' + o.expression
 				}
 				o.options.handler = obj[n]
 				options.watch![o.expression] = o.options
