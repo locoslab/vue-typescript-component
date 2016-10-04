@@ -31,15 +31,15 @@
     "testRegex": "/test/.*\\.(ts|js)$"
   },
   "peerDependencies": {
-    "typescript": "^2.0.2",
-    "vue": "2.0.0-rc.5"
+    "typescript": "^2.0.3",
+    "vue": "^2.0.1"
   },
   "devDependencies": {
     "@types/jest": "^0.9.30",
-    "jest": "^15.1.1",
+    "jest-cli": "^15.1.1",
     "tslint": "^3.15.1",
     "tslint-config-locoslab": "github:locoslab/tslint-config-locoslab",
-    "typescript": "^2.0.2",
-    "vue": "2.0.0-rc.5"
+    "typescript": "^2.0.3",
+    "vue": "^2.0.1"
   }
 }

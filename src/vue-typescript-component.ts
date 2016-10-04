@@ -2,7 +2,7 @@ import Vue = require('vue')
 
 export class WatchOptions {
 	expression: string
-	options: { handler: Vue.WatchHandler } & Vue.WatchOptions
+	options: { handler: Vue.WatchHandler<Vue> } & Vue.WatchOptions
 }
 
 export class VueTypescriptComponentData {
@@ -52,7 +52,7 @@ export function watch(expression: string, options: Vue.WatchOptions = {}) {
 	return function (target: any, member: string) {
 		const wo = new WatchOptions()
 		wo.expression = expression
-		wo.options = <{ handler: Vue.WatchHandler } & WatchOptions>options
+		wo.options = <{ handler: Vue.WatchHandler<Vue> } & WatchOptions>options
 		const watch = getOrCreateComponent(target).watch
 		if (!watch[member]) {
 			watch[member] = []
@@ -64,7 +64,7 @@ export function watch(expression: string, options: Vue.WatchOptions = {}) {
 export interface NoArgumentConstructable {
 	new (): any
 	name?: any
-	vueComponentOptions?: Vue.ComponentOptions
+	vueComponentOptions?: Vue.ComponentOptions<Vue>
 }
 
 const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
@@ -73,12 +73,12 @@ const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
 /** Create property constructor.vueComponentOptions based on method/field annotations
  *  If provided, use options as the base value (.data is always overriden)
  */
-export function component(options: Vue.ComponentOptions = {}) {
+export function component(options: Vue.ComponentOptions<Vue> = {}) {
 	return function (cls: NoArgumentConstructable) {
 		const d = cls.prototype.hasOwnProperty('$$vueTypescriptComponentData')
 				? <VueTypescriptComponentData>cls.prototype.$$vueTypescriptComponentData
 				: new VueTypescriptComponentData()
-		const superOptions: Vue.ComponentOptions = <Vue.ComponentOptions>cls.vueComponentOptions || {}
+		const superOptions: Vue.ComponentOptions<Vue> = <Vue.ComponentOptions<Vue>>cls.vueComponentOptions || {}
 		const obj = new cls()
 		cls.vueComponentOptions = options
 		options.name = options.name || (<any>cls).name
@@ -105,13 +105,6 @@ export function component(options: Vue.ComponentOptions = {}) {
 		// create data; add default values and types to props with initialisers
 		for (let n of Object.getOwnPropertyNames(obj)) {
 			if (props[n]) {
-				if (props[n].default === undefined) {
-					if (typeof obj[n] === 'object') {
-						props[n].default = function () { return new cls()[n] }
-					} else {
-						props[n].default = obj[n]
-					}
-				}
 				if (typeof obj[n] === 'object') {
 					props[n].default = function () { return new cls()[n] }
 				} else {

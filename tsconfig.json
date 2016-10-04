@@ -7,7 +7,13 @@
 		"strictNullChecks": true,
 		"sourceMap": false,
 		"pretty": true,
-		"declaration": true
+		"declaration": true,
+		"lib": [
+			"es5",
+			"dom",
+			"es2015.promise",
+			"es2015.core"
+		]
 	},
 	"files": [
 		"src/vue-typescript-component.ts"
