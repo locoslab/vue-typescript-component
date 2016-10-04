@@ -35,8 +35,8 @@ class AllInOne extends Vue {
 }
 
 it('creates the expected options', () => {
-	(<any>expect((<any>AllInOne).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>AllInOne).vueComponentOptions).toMatchSnapshot()
 })
 it('creates the expected data', () => {
-	(<any>expect((<any>AllInOne).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>AllInOne).vueComponentOptions.data()).toMatchSnapshot()
 })

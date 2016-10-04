@@ -20,8 +20,8 @@ class JustData extends Vue {
 }
 
 it('creates the expected options', () => {
-	(<any>expect((<any>JustData).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>JustData).vueComponentOptions).toMatchSnapshot()
 })
 it('creates the expected data', () => {
-	(<any>expect((<any>JustData).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>JustData).vueComponentOptions.data()).toMatchSnapshot()
 })

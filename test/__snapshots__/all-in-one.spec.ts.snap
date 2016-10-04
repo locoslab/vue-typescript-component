@@ -1,7 +1,7 @@
 exports[`test creates the expected data 1`] = `
 Object {
   "aNumber": 123,
-  "aString": "abc"
+  "aString": "abc",
 }
 `;
 
@@ -9,43 +9,43 @@ exports[`test creates the expected options 1`] = `
 Object {
   "computed": Object {
     "aComputedNumber": Object {
-      "get": [Function get],
-      "set": [Function set]
+      "get": [Function],
+      "set": [Function],
     },
-    "aComputedNumberGetter": [Function get],
+    "aComputedNumberGetter": [Function],
     "aComputedString": Object {
-      "get": [Function get],
-      "set": [Function set]
+      "get": [Function],
+      "set": [Function],
     },
-    "aComputedStringGetter": [Function get]
+    "aComputedStringGetter": [Function],
   },
-  "created": [Function anonymous],
-  "data": [Function anonymous],
+  "created": [Function],
+  "data": [Function],
   "methods": Object {
-    "aMethod": [Function anonymous],
-    "aStringWatch": [Function anonymous]
+    "aMethod": [Function],
+    "aStringWatch": [Function],
   },
   "name": "AllInOne",
   "props": Object {
     "aNumberProp": Object {
-      "required": true
+      "required": true,
     },
     "aNumberPropWithValue": Object {
       "default": 123,
-      "type": [Function Number]
+      "type": [Function],
     },
     "aStringProp": Object {
-      "required": true
+      "required": true,
     },
     "aStringPropWithValue": Object {
       "default": "abc",
-      "type": [Function String]
-    }
+      "type": [Function],
+    },
   },
   "watch": Object {
     "aString": Object {
-      "handler": [Function anonymous]
-    }
-  }
+      "handler": [Function],
+    },
+  },
 }
 `;

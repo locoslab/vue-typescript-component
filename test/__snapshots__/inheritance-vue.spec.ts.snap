@@ -3,11 +3,11 @@ exports[`test Empty data is correct 1`] = `Object {}`;
 exports[`test Empty options are correct 1`] = `
 Object {
   "computed": Object {},
-  "data": [Function anonymous],
+  "data": [Function],
   "methods": Object {},
   "name": "Empty",
   "props": Object {},
-  "watch": Object {}
+  "watch": Object {},
 }
 `;
 
@@ -16,17 +16,17 @@ exports[`test EmptyEmpty data is correct 1`] = `Object {}`;
 exports[`test EmptyEmpty options are correct 1`] = `
 Object {
   "computed": Object {},
-  "data": [Function anonymous],
+  "data": [Function],
   "methods": Object {},
   "name": "EmptyEmpty",
   "props": Object {},
-  "watch": Object {}
+  "watch": Object {},
 }
 `;
 
 exports[`test EmptyFull data is correct 1`] = `
 Object {
-  "bData": "abc"
+  "bData": "abc",
 }
 `;
 
@@ -34,34 +34,34 @@ exports[`test EmptyFull options are correct 1`] = `
 Object {
   "computed": Object {
     "bComputedProp": Object {
-      "get": [Function get],
-      "set": [Function set]
-    }
+      "get": [Function],
+      "set": [Function],
+    },
   },
-  "created": [Function anonymous],
-  "data": [Function anonymous],
+  "created": [Function],
+  "data": [Function],
   "methods": Object {
-    "bMethod": [Function anonymous],
-    "bWatch": [Function anonymous]
+    "bMethod": [Function],
+    "bWatch": [Function],
   },
   "name": "EmptyFull",
   "props": Object {
     "bProp": Object {
       "default": "abc",
-      "type": [Function String]
-    }
+      "type": [Function],
+    },
   },
   "watch": Object {
     "bData": Object {
-      "handler": [Function anonymous]
-    }
-  }
+      "handler": [Function],
+    },
+  },
 }
 `;
 
 exports[`test Full data is correct 1`] = `
 Object {
-  "aData": "abc"
+  "aData": "abc",
 }
 `;
 
@@ -69,34 +69,34 @@ exports[`test Full options are correct 1`] = `
 Object {
   "computed": Object {
     "aComputedProp": Object {
-      "get": [Function get],
-      "set": [Function set]
-    }
+      "get": [Function],
+      "set": [Function],
+    },
   },
-  "created": [Function anonymous],
-  "data": [Function anonymous],
+  "created": [Function],
+  "data": [Function],
   "methods": Object {
-    "aMethod": [Function anonymous],
-    "aWatch": [Function anonymous]
+    "aMethod": [Function],
+    "aWatch": [Function],
   },
   "name": "Full",
   "props": Object {
     "aProp": Object {
       "default": "abc",
-      "type": [Function String]
-    }
+      "type": [Function],
+    },
   },
   "watch": Object {
     "aData": Object {
-      "handler": [Function anonymous]
-    }
-  }
+      "handler": [Function],
+    },
+  },
 }
 `;
 
 exports[`test FullEmpty data is correct 1`] = `
 Object {
-  "aData": "abc"
+  "aData": "abc",
 }
 `;
 
@@ -104,83 +104,83 @@ exports[`test FullEmpty options are correct 1`] = `
 Object {
   "computed": Object {
     "aComputedProp": Object {
-      "get": [Function get],
-      "set": [Function set]
-    }
+      "get": [Function],
+      "set": [Function],
+    },
   },
-  "data": [Function anonymous],
+  "data": [Function],
   "methods": Object {
-    "aMethod": [Function anonymous],
-    "aWatch": [Function anonymous]
+    "aMethod": [Function],
+    "aWatch": [Function],
   },
   "name": "FullEmpty",
   "props": Object {
     "aProp": Object {
       "default": "abc",
-      "type": [Function String]
-    }
+      "type": [Function],
+    },
   },
   "watch": Object {
     "aData": Object {
-      "handler": [Function anonymous]
-    }
-  }
+      "handler": [Function],
+    },
+  },
 }
 `;
 
 exports[`test FullFull data is correct 1`] = `
 Object {
   "aData": "abc",
-  "bData": "abc"
+  "bData": "abc",
 }
 `;
 
 exports[`test FullFull options are correct 1`] = `
 Object {
-  "compiled": [Function anonymous],
+  "compiled": [Function],
   "computed": Object {
     "aComputedProp": Object {
-      "get": [Function get],
-      "set": [Function set]
+      "get": [Function],
+      "set": [Function],
     },
     "bComputedProp": Object {
-      "get": [Function get],
-      "set": [Function set]
-    }
+      "get": [Function],
+      "set": [Function],
+    },
   },
-  "data": [Function anonymous],
+  "data": [Function],
   "methods": Object {
-    "aMethod": [Function anonymous],
-    "aWatch": [Function anonymous],
-    "bMethod": [Function anonymous],
-    "bWatch": [Function anonymous]
+    "aMethod": [Function],
+    "aWatch": [Function],
+    "bMethod": [Function],
+    "bWatch": [Function],
   },
   "name": "FullFull",
   "props": Object {
     "aProp": Object {
       "default": "abc",
-      "type": [Function String]
+      "type": [Function],
     },
     "bProp": Object {
       "default": "abc",
-      "type": [Function String]
-    }
+      "type": [Function],
+    },
   },
   "watch": Object {
     "aData": Object {
-      "handler": [Function anonymous]
+      "handler": [Function],
     },
     "bData": Object {
-      "handler": [Function anonymous]
-    }
-  }
+      "handler": [Function],
+    },
+  },
 }
 `;
 
 exports[`test FullOverride data is correct 1`] = `
 Object {
   "aData": "123",
-  "bData": "abc"
+  "bData": "abc",
 }
 `;
 
@@ -188,28 +188,28 @@ exports[`test FullOverride options are correct 1`] = `
 Object {
   "computed": Object {
     "aComputedProp": Object {
-      "get": [Function get],
-      "set": [Function set]
-    }
+      "get": [Function],
+      "set": [Function],
+    },
   },
-  "created": [Function anonymous],
-  "data": [Function anonymous],
+  "created": [Function],
+  "data": [Function],
   "methods": Object {
-    "aMethod": [Function anonymous],
-    "aWatch": [Function anonymous]
+    "aMethod": [Function],
+    "aWatch": [Function],
   },
   "name": "FullOverride",
   "props": Object {
     "aProp": Object {
       "default": "123",
-      "type": [Function String]
-    }
+      "type": [Function],
+    },
   },
   "watch": Object {
     "aData": Object {
-      "handler": [Function anonymous]
-    }
-  }
+      "handler": [Function],
+    },
+  },
 }
 `;
 
@@ -218,10 +218,10 @@ exports[`test Root data is correct 1`] = `Object {}`;
 exports[`test Root options are correct 1`] = `
 Object {
   "computed": Object {},
-  "data": [Function anonymous],
+  "data": [Function],
   "methods": Object {},
   "name": "Root",
   "props": Object {},
-  "watch": Object {}
+  "watch": Object {},
 }
 `;

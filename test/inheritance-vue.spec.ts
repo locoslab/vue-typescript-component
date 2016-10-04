@@ -92,57 +92,57 @@ class FullOverride extends Full {
 }
 
 it('Root options are correct', () => {
-	(<any>expect((<any>Root).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>Root).vueComponentOptions).toMatchSnapshot()
 })
 it('Root data is correct', () => {
-	(<any>expect((<any>Root).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>Root).vueComponentOptions.data()).toMatchSnapshot()
 })
 
 it('Empty options are correct', () => {
-	(<any>expect((<any>Empty).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>Empty).vueComponentOptions).toMatchSnapshot()
 })
 it('Empty data is correct', () => {
-	(<any>expect((<any>Empty).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>Empty).vueComponentOptions.data()).toMatchSnapshot()
 })
 
 it('EmptyEmpty options are correct', () => {
-	(<any>expect((<any>EmptyEmpty).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>EmptyEmpty).vueComponentOptions).toMatchSnapshot()
 })
 it('EmptyEmpty data is correct', () => {
-	(<any>expect((<any>EmptyEmpty).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>EmptyEmpty).vueComponentOptions.data()).toMatchSnapshot()
 })
 
 it('EmptyFull options are correct', () => {
-	(<any>expect((<any>EmptyFull).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>EmptyFull).vueComponentOptions).toMatchSnapshot()
 })
 it('EmptyFull data is correct', () => {
-	(<any>expect((<any>EmptyFull).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>EmptyFull).vueComponentOptions.data()).toMatchSnapshot()
 })
 
 it('Full options are correct', () => {
-	(<any>expect((<any>Full).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>Full).vueComponentOptions).toMatchSnapshot()
 })
 it('Full data is correct', () => {
-	(<any>expect((<any>Full).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>Full).vueComponentOptions.data()).toMatchSnapshot()
 })
 
 it('FullEmpty options are correct', () => {
-	(<any>expect((<any>FullEmpty).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>FullEmpty).vueComponentOptions).toMatchSnapshot()
 })
 it('FullEmpty data is correct', () => {
-	(<any>expect((<any>FullEmpty).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>FullEmpty).vueComponentOptions.data()).toMatchSnapshot()
 })
 
 it('FullFull options are correct', () => {
-	(<any>expect((<any>FullFull).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>FullFull).vueComponentOptions).toMatchSnapshot()
 })
 it('FullFull data is correct', () => {
-	(<any>expect((<any>FullFull).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>FullFull).vueComponentOptions.data()).toMatchSnapshot()
 })
 
 it('FullOverride options are correct', () => {
-	(<any>expect((<any>FullOverride).vueComponentOptions)).toMatchSnapshot()
+	expect((<any>FullOverride).vueComponentOptions).toMatchSnapshot()
 })
 it('FullOverride data is correct', () => {
-	(<any>expect((<any>FullOverride).vueComponentOptions.data())).toMatchSnapshot()
+	expect((<any>FullOverride).vueComponentOptions.data()).toMatchSnapshot()
 })
