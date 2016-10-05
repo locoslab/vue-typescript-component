@@ -80,5 +80,18 @@ Why this one:
 	- else the prop is marked as required
 	- these settings can be overridden by providing an explicit `PropsOptions` parameter to the decorator
 
+## Contributing
+Contributions including bug reports, tests, and documentation are more than welcome. To get started with development:
+``` bash
+# once: install dependencies
+npm install
+
+# run unit tests in watch mode
+npm test -- --watch
+
+# lint & test
+npm run prepublish
+```
+
 ## License
 [MIT](http://opensource.org/licenses/MIT)
