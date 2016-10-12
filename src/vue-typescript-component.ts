@@ -68,7 +68,8 @@ export interface NoArgumentConstructable {
 }
 
 const lifecycleHooks = ['init', 'created', 'beforeCompile', 'compiled', 'ready',
-		'attached', 'detached', 'beforeDestroy', 'destroyed']
+		'attached', 'detached', 'beforeDestroy', 'destroyed',
+		'render' /* not a lifecyle hook, but handled identically */]
 
 /** Create property constructor.vueComponentOptions based on method/field annotations
  *  If provided, use options as the base value (.data is always overriden)

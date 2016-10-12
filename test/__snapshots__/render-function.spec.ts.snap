@@ -1,0 +1,22 @@
+exports[`test creates the expected data 1`] = `Object {}`;
+
+exports[`test creates the expected options 1`] = `
+Object {
+  "computed": Object {},
+  "data": [Function],
+  "methods": Object {},
+  "name": "RenderFunction",
+  "props": Object {
+    "level": Object {
+      "default": 3,
+      "type": [Function],
+    },
+    "text": Object {
+      "default": "a heading",
+      "type": [Function],
+    },
+  },
+  "render": [Function],
+  "watch": Object {},
+}
+`;
