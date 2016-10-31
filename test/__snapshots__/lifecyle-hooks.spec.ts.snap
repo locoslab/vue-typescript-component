@@ -1,0 +1,27 @@
+exports[`test creates the expected data 1`] = `
+Object {
+  "blub": 1,
+}
+`;
+
+exports[`test creates the expected options 1`] = `
+Object {
+  "activated": [Function],
+  "beforeCreate": [Function],
+  "beforeDestroy": [Function],
+  "beforeMount": [Function],
+  "beforeUpdate": [Function],
+  "computed": Object {},
+  "created": [Function],
+  "data": [Function],
+  "deactivated": [Function],
+  "destroyed": [Function],
+  "methods": Object {},
+  "mounted": [Function],
+  "name": "LifecycleHook",
+  "props": Object {},
+  "render": [Function],
+  "updated": [Function],
+  "watch": Object {},
+}
+`;

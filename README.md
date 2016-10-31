@@ -44,7 +44,7 @@ export default class Example extends Vue {
 	// methods
 	aMethod() { /* ... */ }
 
-	// a lifecycle hook (names: http://rc.vuejs.org/api/#Options-Lifecycle-Hooks)
+	// a lifecycle hook (names: http://vuejs.org/api/#Options-Lifecycle-Hooks)
 	created() { /* ... */ }
 
 	// watches

@@ -137,7 +137,6 @@ Object {
 
 exports[`test FullFull options are correct 1`] = `
 Object {
-  "compiled": [Function],
   "computed": Object {
     "aComputedProp": Object {
       "get": [Function],
@@ -155,6 +154,7 @@ Object {
     "bMethod": [Function],
     "bWatch": [Function],
   },
+  "mounted": [Function],
   "name": "FullFull",
   "props": Object {
     "aProp": Object {

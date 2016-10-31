@@ -64,7 +64,7 @@ class FullFull extends Full {
 	bMethod() { return 'bMethod' }
 
 	// a lifecycle hook
-	compiled() { /* do nothing */ }
+	mounted() { /* do nothing */ }
 
 	@vts.watch('bData') bWatch(val: string, oldVal: string) { /* do nothing */ }
 }
