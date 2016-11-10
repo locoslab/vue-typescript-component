@@ -3,7 +3,6 @@
 import Vue = require('vue')
 import * as vts from '../src/vue-typescript-component'
 
-
 // global, because data is not available in all hooks
 let history = []
 
