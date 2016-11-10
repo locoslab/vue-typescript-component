@@ -23,7 +23,9 @@
     "prepublish": "tslint src/**/*.ts && jest --coverage && tsc -p tsconfig.json --outDir lib"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "transform": {
+      ".*\\.ts$": "<rootDir>/preprocessor.js"
+    },
     "moduleFileExtensions": [
       "ts",
       "js"
@@ -36,10 +38,10 @@
   },
   "devDependencies": {
     "@types/jest": "^15.1.32",
-    "jest-cli": "^16.0.0",
+    "jest-cli": "^17.0.0",
     "tslint": "^3.15.1",
-    "tslint-config-locoslab": "^0.1.0",
+    "tslint-config-locoslab": "^0.2.0",
     "typescript": "^2.0.3",
-    "vue": "^2.0.1"
+    "vue": "^2.0.5"
   }
 }

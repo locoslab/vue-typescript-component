@@ -45,8 +45,8 @@ export function prop(options: Vue.PropOptions = {}) {
 }
 
 /** Use method(val, oldVal) to watch expression
- * The method is still part of the `method` object and it is possible to use multiple @watch
- * annotations to watch multiple expressions with one string
+ * The method is still part of the `methods` object and it is possible to use multiple @watch
+ * annotations to watch multiple expressions with one function
  */
 export function watch(expression: string, options: Vue.WatchOptions = {}) {
 	return function (target: any, member: string) {
@@ -74,7 +74,7 @@ const lifecycleHooks = ['beforeCreate', 'created', 'beforeMount', 'mounted',
 ]
 
 /** Create property constructor.vueComponentOptions based on method/field annotations
- *  If provided, use options as the base value (.data is always overriden)
+ *  If provided, use options as the base value (.data is always overridden)
  */
 export function component(options: Vue.ComponentOptions<Vue> = {}) {
 	return function (cls: NoArgumentConstructable) {
