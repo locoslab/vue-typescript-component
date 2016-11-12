@@ -8,6 +8,7 @@ export class WatchOptions {
 export class VueTypescriptComponentData {
 	props: {[index: string]: Vue.PropOptions} = {}
 	watch: {[index: string]: Array<WatchOptions>} = {}
+	injected: {[index: string]: Object} = {}
 }
 
 // implementation Object.assign (targets only the scope of this project)
@@ -30,7 +31,12 @@ function getOrCreateComponent(target: any): VueTypescriptComponentData {
 		throw 'VueTypescriptComponent decorator is only allowed for non-static members'
 	}
 	if (!target.hasOwnProperty('$$vueTypescriptComponentData')) {
+		let superInjected = {}
+		if (target.$$vueTypescriptComponentData) {
+			superInjected = objAssign({}, target.$$vueTypescriptComponentData.injected)
+		}
 		target.$$vueTypescriptComponentData = new VueTypescriptComponentData()
+		target.$$vueTypescriptComponentData.injected = superInjected
 	}
 	return target.$$vueTypescriptComponentData
 }
@@ -41,6 +47,15 @@ function getOrCreateComponent(target: any): VueTypescriptComponentData {
 export function prop(options: Vue.PropOptions = {}) {
 	return function (target: any, member: string) {
 		getOrCreateComponent(target).props[member] = options
+	}
+}
+
+/** Ignore field
+ * Use on injected fields to make sure they do not appear in data()
+ */
+export function injected() {
+	return function (target: any, member: string) {
+		getOrCreateComponent(target).injected[member] = {}
 	}
 }
 
@@ -78,9 +93,7 @@ const lifecycleHooks = ['beforeCreate', 'created', 'beforeMount', 'mounted',
  */
 export function component(options: Vue.ComponentOptions<Vue> = {}) {
 	return function (cls: NoArgumentConstructable) {
-		const d = cls.prototype.hasOwnProperty('$$vueTypescriptComponentData')
-				? <VueTypescriptComponentData>cls.prototype.$$vueTypescriptComponentData
-				: new VueTypescriptComponentData()
+		const d = getOrCreateComponent(cls.prototype)
 		const superOptions: Vue.ComponentOptions<Vue> = <Vue.ComponentOptions<Vue>>cls.vueComponentOptions || {}
 		const obj = new cls()
 		cls.vueComponentOptions = options
@@ -95,7 +108,7 @@ export function component(options: Vue.ComponentOptions<Vue> = {}) {
 			const newData = new cls()
 			const r: any = {}
 			for (let n of Object.getOwnPropertyNames(newData)) {
-				if (!props[n] && n[0] !== '_' && n[0] !== '$') {
+				if (!props[n] && n[0] !== '_' && n[0] !== '$' && !d.injected[n]) {
 					r[n] = newData[n]
 				}
 			}

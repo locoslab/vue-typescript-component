@@ -49,6 +49,10 @@ export default class Example extends Vue {
 
 	// watches
 	@vts.watch('aString') aStringWatch(val: string, oldVal: string) { /* ... */ }
+
+	// mark as injected, e.g., by a plugin, and do not use in data()
+	// names starting with '$' or '_' are always ignored
+	@vts.injected() errors: any
 }
 ```
 
