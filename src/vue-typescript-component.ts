@@ -7,7 +7,7 @@ export class WatchOptions {
 
 export class VueTypescriptComponentData {
 	props: {[index: string]: Vue.PropOptions} = {}
-	watch: {[index: string]: Array<WatchOptions>} = {}
+	watch: {[index: string]: WatchOptions[]} = {}
 	injected: {[index: string]: Object} = {}
 }
 
@@ -45,7 +45,7 @@ function getOrCreateComponent(target: any): VueTypescriptComponentData {
  * If field is initialized, sets default value and type. Otherwise mark as required
  */
 export function prop(options: Vue.PropOptions = {}) {
-	return function (target: any, member: string) {
+	return (target: any, member: string) => {
 		getOrCreateComponent(target).props[member] = options
 	}
 }
@@ -54,7 +54,7 @@ export function prop(options: Vue.PropOptions = {}) {
  * Use on injected fields to make sure they do not appear in data()
  */
 export function injected() {
-	return function (target: any, member: string) {
+	return (target: any, member: string) => {
 		getOrCreateComponent(target).injected[member] = {}
 	}
 }
@@ -64,7 +64,7 @@ export function injected() {
  * annotations to watch multiple expressions with one function
  */
 export function watch(expression: string, options: Vue.WatchOptions = {}) {
-	return function (target: any, member: string) {
+	return (target: any, member: string) => {
 		const wo = new WatchOptions()
 		wo.expression = expression
 		wo.options = <{ handler: Vue.WatchHandler<Vue> } & WatchOptions>options
@@ -92,7 +92,7 @@ const lifecycleHooks = ['beforeCreate', 'created', 'beforeMount', 'mounted',
  *  If provided, use options as the base value (.data is always overridden)
  */
 export function component(options: Vue.ComponentOptions<Vue> = {}) {
-	return function (cls: NoArgumentConstructable) {
+	return (cls: NoArgumentConstructable) => {
 		const d = getOrCreateComponent(cls.prototype)
 		const superOptions: Vue.ComponentOptions<Vue> = <Vue.ComponentOptions<Vue>>cls.vueComponentOptions || {}
 		const obj = new cls()
@@ -104,7 +104,7 @@ export function component(options: Vue.ComponentOptions<Vue> = {}) {
 		options.props = objAssign({}, superOptions.props, options.props)
 		// to get rid of Index signature of object type implicitly has an 'any' type.
 		const props = <{ [key: string]: Vue.PropOptions }>options.props
-		options.data = function () {
+		options.data = () => {
 			const newData = new cls()
 			const r: any = {}
 			for (let n of Object.getOwnPropertyNames(newData)) {
@@ -122,7 +122,7 @@ export function component(options: Vue.ComponentOptions<Vue> = {}) {
 		for (let n of Object.getOwnPropertyNames(obj)) {
 			if (props[n]) {
 				if (typeof obj[n] === 'object') {
-					props[n].default = function () { return new cls()[n] }
+					props[n].default = () => { return new cls()[n] }
 				} else {
 					props[n].default = obj[n]
 				}

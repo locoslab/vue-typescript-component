@@ -19,7 +19,7 @@ it('creates the expected options', () => {
 it('creates the expected data', () => {
 	expect((<any>RenderFunction).vueComponentOptions.data()).toMatchSnapshot()
 })
-it('creates the expected html', () => new Promise(function(resolve, reject) {
+it('creates the expected html', () => new Promise((resolve, reject) => {
 	const vm = new Vue({
 		el: document.createElement('div'),
 		render: (h) => h((<any>RenderFunction).vueComponentOptions),

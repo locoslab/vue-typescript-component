@@ -29,7 +29,7 @@ class Parent extends Vue {
 	}
 }
 
-it('creates the expected html', () => new Promise(function(resolve, reject) {
+it('creates the expected html', () => new Promise((resolve, reject) => {
 	const vm = new Vue({
 		el: document.createElement('div'),
 		render: (h) => h((<any>Parent).vueComponentOptions),

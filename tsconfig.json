@@ -5,6 +5,7 @@
 		"experimentalDecorators": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
+		"noUnusedLocals": true,
 		"sourceMap": false,
 		"pretty": true,
 		"declaration": true,

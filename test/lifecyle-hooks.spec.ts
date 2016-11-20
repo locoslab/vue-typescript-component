@@ -4,7 +4,7 @@ import Vue = require('vue')
 import * as vts from '../src/vue-typescript-component'
 
 // global, because data is not available in all hooks
-let history = []
+let history: string[] = []
 
 @vts.component()
 class LifecycleHook extends Vue {
@@ -33,7 +33,7 @@ it('creates the expected options', () => {
 it('creates the expected data', () => {
 	expect((<any>LifecycleHook).vueComponentOptions.data()).toMatchSnapshot()
 })
-it('creates the expected html', () => new Promise(function(resolve, reject) {
+it('creates the expected html', () => new Promise((resolve, reject) => {
 	history = []
 	// beforeDestroy/destroyed is not called for children (not sure if intentional)
 	// -> make the component the global instance
