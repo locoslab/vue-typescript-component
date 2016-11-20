@@ -1,0 +1,101 @@
+exports[`test accepts the intended props 1`] = `
+"{
+  \"someString\": \"abc\",
+  \"someNumber\": 123,
+  \"someArray\": [
+    123,
+    \"abc\"
+  ],
+  \"someObject\": {
+    \"aString\": \"abc\",
+    \"aNumber\": 123,
+    \"aArray\": [
+      123,
+      \"abc\"
+    ]
+  },
+  \"someFoo\": {
+    \"someString\": \"abc\",
+    \"someNumber\": 123,
+    \"someArray\": [
+      123,
+      \"abc\"
+    ],
+    \"someObject\": {
+      \"aString\": \"abc\",
+      \"aNumber\": 123,
+      \"aArray\": [
+        123,
+        \"abc\"
+      ]
+    }
+  },
+  \"someFunction\": \"abc\"
+}"
+`;
+
+exports[`test creates the expected options 1`] = `
+Object {
+  "computed": Object {},
+  "data": [Function],
+  "methods": Object {},
+  "name": "JustProps",
+  "props": Object {
+    "someArray": Object {
+      "default": [Function],
+      "type": [Function],
+    },
+    "someFoo": Object {
+      "default": [Function],
+      "type": [Function],
+    },
+    "someFunction": Object {
+      "default": [Function],
+      "type": [Function],
+    },
+    "someNumber": Object {
+      "default": 123,
+      "type": [Function],
+    },
+    "someObject": Object {
+      "default": [Function],
+      "type": [Function],
+    },
+    "someString": Object {
+      "default": "abc",
+      "type": [Function],
+    },
+  },
+  "render": [Function],
+  "watch": Object {},
+}
+`;
+
+exports[`test rejects props with wrong types 1`] = `
+Array [
+  Array [
+    "[Vue warn]: Invalid prop: type check failed for prop \"someString\". Expected String, got Number. 
+(found in root instance)",
+  ],
+  Array [
+    "[Vue warn]: Invalid prop: type check failed for prop \"someNumber\". Expected Number, got String. 
+(found in root instance)",
+  ],
+  Array [
+    "[Vue warn]: Invalid prop: type check failed for prop \"someArray\". Expected Array, got Object. 
+(found in root instance)",
+  ],
+  Array [
+    "[Vue warn]: Invalid prop: type check failed for prop \"someObject\". Expected Object, got Array. 
+(found in root instance)",
+  ],
+  Array [
+    "[Vue warn]: Invalid prop: type check failed for prop \"someFoo\". Expected Foo, got Function. 
+(found in root instance)",
+  ],
+  Array [
+    "[Vue warn]: Invalid prop: type check failed for prop \"someFunction\". Expected Function, got Object. 
+(found in root instance)",
+  ],
+]
+`;
