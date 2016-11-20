@@ -127,7 +127,12 @@ export function component(options: Vue.ComponentOptions<Vue> = {}) {
 					props[n].default = obj[n]
 				}
 				if (props[n].type === undefined) {
-					props[n].type = Object.getPrototypeOf(obj[n]).constructor
+					try {
+						props[n].type = Object.getPrototypeOf(obj[n]).constructor
+					} catch (error) {
+						// IE throws a TypeError exception if the parameter isn't an object
+						props[n].type = obj[n].__proto__.constructor
+					}
 				}
 			}
 		}
