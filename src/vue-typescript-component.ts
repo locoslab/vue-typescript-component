@@ -131,7 +131,7 @@ export function component(options: Vue.ComponentOptions<Vue> = {}) {
 						props[n].type = Object.getPrototypeOf(obj[n]).constructor
 					} catch (error) {
 						// IE throws a TypeError exception if the parameter isn't an object
-						props[n].type = obj[n].__proto__.constructor
+						props[n].type = obj[n].__proto__ ? obj[n].__proto__.constructor : obj[n].constructor
 					}
 				}
 			}
