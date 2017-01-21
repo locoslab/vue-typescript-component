@@ -2,23 +2,23 @@
 
 import * as vts from '../src/vue-typescript-component'
 
-@vts.component()
+@vts.component
 class Root {
 }
 
-@vts.component()
+@vts.component
 class Empty extends Root {
 }
 
-@vts.component()
+@vts.component
 class EmptyEmpty extends Empty {
 }
 
-@vts.component()
+@vts.component
 class EmptyFull extends Empty {
 	bData = 'abc'
 
-	@vts.prop() bProp = 'abc'
+	@vts.prop bProp = 'abc'
 
 	get bComputedProp(): string { return this.bData }
 	set bComputedProp(value: string) { this.bData = value }
@@ -31,11 +31,11 @@ class EmptyFull extends Empty {
 	@vts.watch('bData') bWatch(val: string, oldVal: string) { /* do nothing */ }
 }
 
-@vts.component()
+@vts.component
 class Full extends Root {
 	aData = 'abc'
 
-	@vts.prop() aProp = 'abc'
+	@vts.prop aProp = 'abc'
 
 	get aComputedProp(): string { return this.aData }
 	set aComputedProp(value: string) { this.aData = value }
@@ -48,15 +48,15 @@ class Full extends Root {
 	@vts.watch('aData') aWatch(val: string, oldVal: string) { /* do nothing */ }
 }
 
-@vts.component()
+@vts.component
 class FullEmpty extends Full {
 }
 
-@vts.component()
+@vts.component
 class FullFull extends Full {
 	bData = 'abc'
 
-	@vts.prop() bProp = 'abc'
+	@vts.prop bProp = 'abc'
 
 	get bComputedProp(): string { return this.bData }
 	set bComputedProp(value: string) { this.bData = value }
@@ -69,12 +69,12 @@ class FullFull extends Full {
 	@vts.watch('bData') bWatch(val: string, oldVal: string) { /* do nothing */ }
 }
 
-@vts.component()
+@vts.component
 class FullOverride extends Full {
 	aData = '123'
 	bData = 'abc'
 
-	@vts.prop() aProp = '123'
+	@vts.prop aProp = '123'
 
 	get aComputedProp(): string { return this.bData }
 	set aComputedProp(value: string) { this.bData = value }

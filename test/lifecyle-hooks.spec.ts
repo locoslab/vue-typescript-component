@@ -6,7 +6,7 @@ import * as vts from '../src/vue-typescript-component'
 // global, because data is not available in all hooks
 let history: string[] = []
 
-@vts.component()
+@vts.component
 class LifecycleHook extends Vue {
 	blub = 1
 	beforeCreate() { history.push('beforeCreate') }

@@ -3,10 +3,10 @@
 import Vue = require('vue')
 import * as vts from '../src/vue-typescript-component'
 
-@vts.component()
+@vts.component
 class RenderFunction extends Vue {
-	@vts.prop() level = 3
-	@vts.prop() text = 'a heading'
+	@vts.prop level = 3
+	@vts.prop text = 'a heading'
 
 	render(createElement: typeof Vue.prototype.$createElement) {
 		return createElement('h' + this.level, this.text)

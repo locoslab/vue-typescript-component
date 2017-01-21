@@ -1,9 +1,9 @@
 /// <reference path='../node_modules/@types/jest/index.d.ts' />
 
 import Vue = require('vue')
-import * as vts from '../src/vue-typescript-component'
+import { Component, prop, watch } from '../src/vue-typescript-component'
 
-@vts.component()
+@Component
 class AllInOne extends Vue {
 	aString = 'abc'
 	aNumber = 123
@@ -11,11 +11,11 @@ class AllInOne extends Vue {
 	_thisWillBeIgnored = 345
 	$asWillThis = 345
 
-	@vts.prop() aStringPropWithValue = 'abc'
-	@vts.prop() aNumberPropWithValue = 123
+	@prop aStringPropWithValue = 'abc'
+	@prop aNumberPropWithValue = 123
 
-	@vts.prop() aStringProp: string
-	@vts.prop() aNumberProp: number
+	@prop aStringProp: string
+	@prop aNumberProp: number
 
 	get aComputedString(): string { return this.aString }
 	set aComputedString(value: string) { this.aString = value }
@@ -31,7 +31,7 @@ class AllInOne extends Vue {
 	// a lifecycle hook
 	created() { /* do nothing */ }
 
-	@vts.watch('aString') aStringWatch(val: string, oldVal: string) { /* do nothing */ }
+	@watch('aString') aStringWatch(val: string, oldVal: string) { /* do nothing */ }
 }
 
 it('creates the expected options', () => {

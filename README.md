@@ -13,23 +13,23 @@ Note: TypeScript and Vue.js must be installed as well.
 ### Example Component
 ```typescript
 import Vue = require('vue')
-import * as vts from 'vue-typescript-component'
+import { Component, prop, watch, injected } from 'vue-typescript-component'
 // see note about import *.vue files below
 import * as ChildComponent from './child.vue'
 
-@vts.component({components: {ChildComponent}})
+@Component({components: {ChildComponent}})
 export default class Example extends Vue {
 	// this will be 'data'
 	aString = 'abc'
 	aNumber = 123
 
 	// props with initializer -> sets default value and type
-	@vts.prop() aStringPropWithValue = 'abc'
-	@vts.prop() aNumberPropWithValue = 123
+	@prop aStringPropWithValue = 'abc'
+	@prop aNumberPropWithValue = 123
 
 	// props without initializer -> sets required=true
-	@vts.prop() aStringProp: string
-	@vts.prop() aNumberProp: number
+	@prop aStringProp: string
+	@prop aNumberProp: number
 
 	// computed props
 	get aComputedString(): string { return this.aString }
@@ -48,11 +48,11 @@ export default class Example extends Vue {
 	created() { /* ... */ }
 
 	// watches
-	@vts.watch('aString') aStringWatch(val: string, oldVal: string) { /* ... */ }
+	@watch('aString') aStringWatch(val: string, oldVal: string) { /* ... */ }
 
 	// mark as injected, e.g., by a plugin, and do not use in data()
 	// names starting with '$' or '_' are always ignored
-	@vts.injected() errors: any
+	@injected errors: any
 }
 ```
 

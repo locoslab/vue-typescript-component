@@ -10,7 +10,7 @@ class Foo {
 	someObject = {aString: 'abc', aNumber: 123, aArray: [123, 'abc']}
 }
 
-@vts.component()
+@vts.component
 class JustData extends Vue {
 	someString = 'abc'
 	someNumber = 123

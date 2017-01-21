@@ -8,7 +8,7 @@ import * as vts from '../src/vue-typescript-component'
 
 @vts.component({template: '<div>{{val}}</div>'})
 class Child extends Vue {
-	@vts.prop() val: number
+	@vts.prop val: number
 
 	double() {
 		return this.val * 2

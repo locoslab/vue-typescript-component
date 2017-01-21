@@ -9,17 +9,17 @@ class A extends Vue {
 	abc = 1
 }
 
-@vts.component()
+@vts.component
 class B extends A {
 	b = 1
 	bc = 1
-	@vts.injected() a: number
+	@vts.injected a: number
 }
 
-@vts.component()
+@vts.component
 class C extends B {
-	@vts.injected() ab: number
-	@vts.injected() b: number
+	@vts.injected ab: number
+	@vts.injected b: number
 	c = 1
 }
 

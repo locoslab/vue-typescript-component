@@ -14,14 +14,14 @@ function getabc() {
 	return 'abc'
 }
 
-@vts.component()
+@vts.component
 class JustProps extends Vue {
-	@vts.prop() someString = 'abc'
-	@vts.prop() someNumber = 123
-	@vts.prop() someArray = [123, 'abc']
-	@vts.prop() someObject = {aString: 'abc', aNumber: 123, aArray: [123, 'abc']}
-	@vts.prop() someFoo = new Foo()
-	@vts.prop() someFunction = getabc
+	@vts.prop someString = 'abc'
+	@vts.prop someNumber = 123
+	@vts.prop someArray = [123, 'abc']
+	@vts.prop someObject = {aString: 'abc', aNumber: 123, aArray: [123, 'abc']}
+	@vts.prop someFoo = new Foo()
+	@vts.prop someFunction = getabc
 
 	render(createElement: typeof Vue.prototype.$createElement) {
 		return createElement('div', JSON.stringify({
