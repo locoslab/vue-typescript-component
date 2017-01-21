@@ -48,7 +48,7 @@ it('accepts the intended props', () => new Promise((resolve, reject) => {
 			someObject: {aString: 'abc', aNumber: 123, aArray: [123, 'abc']},
 			someFoo: new Foo(),
 			someFunction: getabc,
-		}
+		},
 	}).$mount(document.createElement('div'))
 	vm.$nextTick(() => {
 		expect(vm.$el.innerHTML).toMatchSnapshot()
@@ -57,7 +57,7 @@ it('accepts the intended props', () => new Promise((resolve, reject) => {
 }))
 
 it('rejects props with wrong types', () => {
-	const mockConsoleError = jest.fn();
+	const mockConsoleError = jest.fn()
 	console.error = mockConsoleError
 	new (Vue.extend((<any>JustProps).vueComponentOptions))({
 		propsData: {
@@ -67,7 +67,7 @@ it('rejects props with wrong types', () => {
 			someObject: [123, 'abc'],
 			someFoo: getabc,
 			someFunction: new Foo(),
-		}
+		},
 	}).$mount(document.createElement('div'))
 	expect(mockConsoleError.mock.calls).toMatchSnapshot()
 })

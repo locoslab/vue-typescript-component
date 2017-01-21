@@ -92,7 +92,7 @@ export interface NoArgumentConstructable {
 }
 
 function isNoArgumentConstructable(arg: any): arg is NoArgumentConstructable {
-   return arg instanceof Function;
+	return arg instanceof Function
 }
 
 const lifecycleHooks = ['beforeCreate', 'created', 'beforeMount', 'mounted',
