@@ -42,6 +42,6 @@
     "tslint": "^4.0.1",
     "tslint-config-locoslab": "^1.0.0",
     "typescript": "^2.1.1",
-    "vue": "^2.0.5"
+    "vue": "^2.2.3"
   }
 }
