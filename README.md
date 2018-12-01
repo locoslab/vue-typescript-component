@@ -1,4 +1,7 @@
-# vue-typescript-component [![Build Status](https://travis-ci.org/locoslab/vue-typescript-component.svg?branch=master)](https://travis-ci.org/locoslab/vue-typescript-component) [![npm version](https://badge.fury.io/js/vue-typescript-component.svg)](https://badge.fury.io/js/vue-typescript-component)
+# :snowflake: DEPRECATION NOTICE :snowflake:
+Official TypeScript support has been added to Vue.js 2.x and the old bindings have been changed considerably since this repository has been created. We recommend to start new projects with [Vue CLI](https://cli.vuejs.org/).
+
+# vue-typescript-component
 Use TypeScript 2.0 classes as Vue.js 2.0 components primarily targeting a vueify setup.
 
 Note: This projects targets TypeScript 2.0 and Vue.js 2.0, and uses the built-in type definitions provided by Vue.js 2.0. Please cf. [package.json](package.json) for the tested versions.
