@@ -1,6 +1,6 @@
 {
   "name": "vue-typescript-component",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Decorators to transform TypeScript classes to vue components",
   "author": "Locoslab GmbH",
   "homepage": "https://github.com/locoslab/vue-typescript-component",
